@@ -30,6 +30,7 @@ import { Devices } from './devices';
 import { EmojisStickers } from './emojis-stickers';
 import { DeveloperTools } from './developer-tools';
 import { About } from './about';
+import { Sync } from './sync';
 import { UseStateProvider } from '../../components/UseStateProvider';
 import { stopPropagation } from '../../utils/keyboard';
 import { LogoutDialog } from '../../components/LogoutDialog';
@@ -112,7 +113,6 @@ export function Settings({ initialPage, requestClose }: SettingsProps) {
     return screenSize === ScreenSize.Mobile ? undefined : SettingsPages.GeneralPage;
   });
   const menuItems = useSettingsMenuItems();
-
   const handlePageRequestClose = () => {
     if (screenSize === ScreenSize.Mobile) {
       setActivePage(undefined);
@@ -172,7 +172,8 @@ export function Settings({ initialPage, requestClose }: SettingsProps) {
                   ))}
                 </div>
               </PageNavContent>
-              <Box style={{ padding: config.space.S200 }} shrink="No" direction="Column">
+              <Box style={{ padding: config.space.S200 }} shrink="No" direction="Column" gap="200">
+                <Sync />
                 <UseStateProvider initial={false}>
                   {(logout, setLogout) => (
                     <>

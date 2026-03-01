@@ -41,7 +41,38 @@ export interface Settings {
   dateFormatString: string;
 
   developerTools: boolean;
+  syncSettings: boolean;
 }
+
+export const PORTABLE_SETTINGS = [
+  'themeId',
+  'useSystemTheme',
+  'lightThemeId',
+  'darkThemeId',
+  'monochromeMode',
+  'isMarkdown',
+  'editorToolbar',
+  'twitterEmoji',
+  'pageZoom',
+  'hideActivity',
+  'isPeopleDrawer',
+  'memberSortFilterIndex',
+  'enterForNewline',
+  'messageLayout',
+  'messageSpacing',
+  'hideMembershipEvents',
+  'hideNickAvatarEvents',
+  'mediaAutoLoad',
+  'urlPreview',
+  'encUrlPreview',
+  'showHiddenEvents',
+  'legacyUsernameColor',
+  'showNotifications',
+  'isNotificationSounds',
+  'hour24Clock',
+  'dateFormatString',
+  'developerTools',
+] as const satisfies readonly (keyof Settings)[];
 
 const defaultSettings: Settings = {
   themeId: undefined,
@@ -75,6 +106,7 @@ const defaultSettings: Settings = {
   dateFormatString: 'D MMM YYYY',
 
   developerTools: false,
+  syncSettings: false,
 };
 
 export const getSettings = () => {
